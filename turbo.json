@@ -2,6 +2,10 @@
     "$schema": "https://turbo.build/schema.json",
     "globalEnv": ["NODE_ENV", "MONGODB_URI"],
     "tasks": {
+        "build": {
+            "dependsOn": [],
+            "outputs": [".next/**"]
+        },
         "dev": {
             "cache": false,
             "env": [
