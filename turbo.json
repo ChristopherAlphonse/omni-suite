@@ -1,0 +1,44 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalEnv": ["NODE_ENV", "MONGODB_URI"],
+    "tasks": {
+        "dev": {
+            "cache": false,
+            "env": [
+                "NEXT_PUBLIC_VERCEL_ENV",
+                "NEXT_PUBLIC_STATIC_EXPORT",
+                "NEXT_PUBLIC_BASE_URL",
+                "NEXT_PUBLIC_VERCEL_URL",
+                "NEXT_PUBLIC_DIST_URL",
+                "NEXT_PUBLIC_DOCS_URL",
+                "NEXT_PUBLIC_BASE_PATH",
+                "NEXT_PUBLIC_VERCEL_REVALIDATE_TIME",
+                "NEXT_PUBLIC_DATA_URL"
+            ],
+            "persistent": true
+        },
+        "format": {
+            "cache": false
+        },
+        "lint:css": {
+            "inputs": ["{app,components,layouts,pages,styles}/**/*.css"],
+            "outputs": [".stylelintcache"]
+        },
+        "lint:fix": {
+            "cache": false
+        },
+        "lint:js": {
+            "inputs": [
+                "{app,components,hooks,i18n,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx,mjs}",
+                "{next-data,scripts,i18n}/**/*.{mjs,json}",
+                "{.storybook,public}/**/*.{ts,js,json}",
+                "*.{json,ts,tsx}"
+            ],
+            "outputs": [".eslintjscache"]
+        },
+        "lint:md": {
+            "inputs": ["{app,pages}/**/*.{md,mdx}", "*.{md,mdx}"],
+            "outputs": [".eslintmdcache"]
+        }
+    }
+}

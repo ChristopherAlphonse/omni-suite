@@ -1,7 +1,45 @@
-import type { NextConfig } from "next";
+import withBundleAnalyzer from '@next/bundle-analyzer';
 
-const nextConfig: NextConfig = {
-  /* config options here */
+import process from 'process';
+
+/**
+ * @type {import('next').NextConfig}
+ **/
+export default () => {
+    const plugins = [];
+
+    if (process.env.ANALYZE === 'true') {
+        // @ts-ignore
+        plugins.push(withBundleAnalyzer({ enabled: true }));
+    }
+
+    return plugins.reduce((acc: import('next').NextConfig, next) => next(acc), {
+        reactStrictMode: true,
+        pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+        eslint: { ignoreDuringBuilds: true, dirs: ['app', 'components', 'layouts'] },
+        typescript: {
+            ignoreBuildErrors: true
+        },
+
+        images: {
+            minimumCacheTTL: 31536000,
+            remotePatterns: [
+                {
+                    protocol: 'https',
+                    // most likely to use for storing images
+                    hostname: 'res.cloudinary.com'
+                }
+            ]
+        },
+
+        // @ts-ignore
+        webpack: (config) => {
+            config.module.rules.push({
+                test: /\.svg$/,
+                use: ['@svgr/webpack']
+            });
+
+            return config;
+        }
+    });
 };
-
-export default nextConfig;

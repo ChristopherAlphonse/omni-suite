@@ -1,0 +1,17 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "assignees": ["christopheralphonse"],
+    "extends": ["config:base"],
+    "osvVulnerabilityAlerts": true,
+    "packageRules": [
+        {
+            "enabled": false,
+            "matchPackagePatterns": ["*"]
+        }
+    ],
+    "prHeader": "BOT Dependancy Check",
+    "prHourlyLimit": 3,
+    "vulnerabilityAlerts": {
+        "enabled": true
+    }
+}
