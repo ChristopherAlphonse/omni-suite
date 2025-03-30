@@ -1,12 +1,14 @@
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
+import createNextIntlPlugin from 'next-intl/plugin';
 import process from 'process';
 
 /**
  * @type {import('next').NextConfig}
  **/
 export default () => {
-    const plugins = [];
+    const withNextIntl = createNextIntlPlugin();
+    const plugins = [withNextIntl];
 
     if (process.env.ANALYZE === 'true') {
         // @ts-ignore
