@@ -1,18 +1,34 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      time: "05:00"
+    - package-ecosystem: 'npm'
+      directory: '/'
+      schedule:
+          interval: 'weekly'
+          time: '05:00'
       open-pull-requests-limit: 5
       groups:
-        nextjs:
-          patterns: ['@next/*', 'next*']
-          update-types: ['major', 'minor', 'patch']
-        react-core:
-          patterns: ['react', 'react-dom']
-          update-types: ['major', 'minor', 'patch']
-        typescript:
-          patterns: ['typescript', '@types/*', 'typescript-eslint/*']
-          update-types: ['major', 'minor', 'patch']
+          nextjs:
+              patterns:
+                  - '@next/*'
+                  - 'next*'
+              update-types:
+                  - 'major'
+                  - 'minor'
+                  - 'patch'
+          react-core:
+              patterns:
+                  - 'react'
+                  - 'react-dom'
+              update-types:
+                  - 'major'
+                  - 'minor'
+                  - 'patch'
+          typescript:
+              patterns:
+                  - 'typescript'
+                  - '@types/*'
+                  - 'typescript-eslint/*'
+              update-types:
+                  - 'major'
+                  - 'minor'
+                  - 'patch'
