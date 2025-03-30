@@ -12,13 +12,13 @@ _Add feature to board prior to making changes_
 
     ```sh
     git clone https://github.com/ChristopherAlphonse/omni-suite.git
-    cd repository-name
+    cd omni-suite
     ```
 
 3. **Create a Branch**: Create a new branch for your changes:
 
     ```sh
-    git checkout -b feature-or-bugfix-name
+    git switch -b feature-or-bugfix-name
     ```
 
 4. **Make Your Changes**: Implement your changes and commit them.
