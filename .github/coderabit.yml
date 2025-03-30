@@ -1,0 +1,7 @@
+triggers:
+    - event: pull_request
+      conditions:
+          label: 'ready for review'
+      actions:
+          - trigger: 'review'
+            reviewer: 'coderabit_bot'
