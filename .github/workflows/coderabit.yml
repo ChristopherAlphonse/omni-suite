@@ -16,7 +16,7 @@ jobs:
         steps:
             - name: Run code review command
               run: |
-                  @coderabit review
+                  coderabit review
 
     review_pr:
         name: Review Pull Request
