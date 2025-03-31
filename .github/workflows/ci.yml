@@ -1,0 +1,41 @@
+name: CI workflow
+
+on:
+    push:
+        branches:
+            - main
+        paths-ignore:
+            - '**/*.md'
+    pull_request:
+        branches:
+            - main
+            - '*'
+
+jobs:
+    lint-and-format:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '22'
+                  cache: 'yarn'
+
+            - name: Install Yarn Globally
+              run: npm install -g yarn
+
+            - name: Install Turbo Globally
+              run: npm install -g turbo
+
+            - name: Install Dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Run Formatter
+              run: yarn format
+
+            - name: Does it build?
+              run: yarn build
