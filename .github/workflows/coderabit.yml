@@ -16,7 +16,11 @@ jobs:
         steps:
             - name: Run code review command
               run: |
+<<<<<<< HEAD
                   coderabit review
+=======
+                  @coderabit review
+>>>>>>> 51dba5e (Refactor CI workflows and update build scripts for improved efficiency)
 
     review_pr:
         name: Review Pull Request
