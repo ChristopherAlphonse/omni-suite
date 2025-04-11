@@ -1,4 +1,4 @@
-import { createCompleteUrl } from '../utils/helpers';
+import { createCompleteUrl } from '@/utils/helpers';
 
 export default async function sitemap() {
     const statics = ['sitemap.xml', 'robots.txt', 'manifest.webmanifest', 'og'];
