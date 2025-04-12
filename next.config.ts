@@ -1,12 +1,14 @@
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
+import createNextIntlPlugin from 'next-intl/plugin';
 import process from 'process';
 
 /**
  * @type {import('next').NextConfig}
  **/
 export default () => {
-    const plugins = [];
+    const withNextIntl = createNextIntlPlugin();
+    const plugins = [withNextIntl];
 
     if (process.env.ANALYZE === 'true') {
         // @ts-ignore
@@ -14,6 +16,7 @@ export default () => {
     }
 
     return plugins.reduce((acc: import('next').NextConfig, next) => next(acc), {
+        allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev'],
         reactStrictMode: true,
         pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
         eslint: { ignoreDuringBuilds: true, dirs: ['app', 'components', 'layouts'] },

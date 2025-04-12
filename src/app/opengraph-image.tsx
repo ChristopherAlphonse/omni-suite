@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-import { createCompleteUrl } from '../utils/helpers';
+import { createCompleteUrl } from '@/utils/helpers';
 
 export const runtime = 'edge';
 
