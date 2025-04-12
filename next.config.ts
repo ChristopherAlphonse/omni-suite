@@ -16,6 +16,7 @@ export default () => {
     }
 
     return plugins.reduce((acc: import('next').NextConfig, next) => next(acc), {
+        allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev'],
         reactStrictMode: true,
         pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
         eslint: { ignoreDuringBuilds: true, dirs: ['app', 'components', 'layouts'] },
